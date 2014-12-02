@@ -4,13 +4,16 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
 <style>
-    body:before {
-        background-image: url('img/paper.jpg');
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        opacity: 0.5;
+    body {
+        background-image: url('img/paper-2.jpg');
+        background-repeat: repeat;
+        background-position: center center;
+        background-size: 100%;
+        /*content: "";*/
+        /*position: absolute;*/
+        /*width: 100%;*/
+        /*height: 150%;*/
+        /*z-index: 0;*/
+        /*opacity: 0.5;*/
     }
 </style>

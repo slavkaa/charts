@@ -26,8 +26,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <a href="structure.php">Ієрархія (структура)(структура)</a>
-                <br/>
+                <a href="structure.php">Ієрархія (структура)</a><br/>
                 <br/>
                 <img src="img/chart_illustrations/piramid.png" style="width: 80px;" />
                 <img src="img/chart_illustrations/schema.png" style="width: 80px;" />
@@ -38,9 +37,7 @@
                 2. Ви хочете акцентувати увагу глядача на тому, що обьекти на сайді є єтапами первного процессу.<br/>
                 Головна думка не ієрархія, а причинно-наслідковий зв’язок між обьектами.<br/>
                 <br/>
-                <a href="cause-effect.php">Причинно наслідковий зв’зок</a>
-
-                <br/>
+                <a href="cause-effect.php">Причинно наслідковий зв’зок</a><br/>
                 <br/>
 
                 <img src="img/chart_illustrations/alghoritm.png" style="width: 80px;" />
