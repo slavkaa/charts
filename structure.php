@@ -13,51 +13,63 @@
         <br/>
         <br/>
         <br/>
-        <div class="row" style="text-align: center;">
-            <div class="col-md-12">
-                <p>"Елементи мають (лінійно) слідувати один за одним, а також"</p>
-                <h1>головним є те що елементи э ...</h1>
-            </div>
+
+        <div class="jumbotron" style="background-color: #fefefe; border: 1px solid #ddd;text-align: center;">
+            <h4>"Ви маєте текстові данні. Елементи мають (лінійно) слідувати один за одним,"</h4>
+            <h2>головним є те що елементи э ...</h2>
         </div>
 
         <div class="row">
             <div class="col-md-4">
-                <h2>Послідовністтю</h2>
-                1. Треба акцентувати увагу на послідовності елементів.
-                Ви хочете проіллюструвати, що єтап Б слідує за етапом А.<br/>
-                <br/>
-                <a href="structure-linear.php">Послідовність</a><br/>
-                <br/>
-                <img src="img/chart_illustrations/alghoritm.png" style="width: 80px;" />
-                <img src="img/chart_illustrations/alghoritm-linear.png" style="width: 80px;" />
-            </div>
-            <!--div class="col-md-4">
-                <h2></h2>
-                Ви хочете акцентувати увагу на розгалудженності зв’язків між елементами.
-                Наочно показати не лінійну підпорядкованість елементів діаграмми.<br/>
-                <a href="structure-schema.php">Схема</a><br/>
-                <img src="img/chart_illustrations/schema.png" style="width: 80px;" />
-            </div-->
-            <div class="col-md-4">
-                <h2>Ієрархією</h2>
-                2. Вам треба акцентувати увагу на тому, що всі елементи діаграмми складають одне ціле.<br/>
-                Частини одного цілого <br/>
-                <br/>
-                <!-- коло теж гарно, але з’їдає багато місця.-->
-                <a href="structure-pazzle.php">Ієрархія</a><br/>
-                <br/>
-                <img src="img/chart_illustrations/piramid.png" style="width: 80px;" />
+                <?php
+                    $minHeight = '130px';
+                    $title = 'Послідовністтю';
+                    // ---
+                    $text1 = [];
+                    $text1[] = 'Треба акцентувати увагу на послідовності елементів.';
+                    $text1[] = 'Ви хочете проіллюструвати, що єтап Б слідує за етапом А.';
+                    // ---
+                    $images = [];
+                    $images[] = 'chart_illustrations/algorithm.png';
+                    $images[] = 'chart_illustrations/algorithm-linear.png';
+                    // ---
+                    $nextUrl = 'structure-linear.php';
+
+                    require('inc/cell.inc');
+                ?>
             </div>
             <div class="col-md-4">
-                <h2>Частиною одного цілого</h2>
-                3. Вам треба акцентувати увагу на тому, що всі елементи діаграмми складають одне ціле.<br/>
-                Частини одного цілого <br/>
-                <br/>
-                <!-- коло теж гарно, але з’їдає багато місця.-->
-                <a href="structure-puzzle.php">Одне ціле</a><br/>
-                <br/>
-                <img src="img/chart_illustrations/puzzle.png" style="width: 80px;" />
-                <img src="img/chart_illustrations/pie.png" style="width: 80px;" />
+                <?php
+                    $title = 'Ієрархією';
+                    // ---
+                    $text1 = [];
+                    $text1[] = 'Вам треба акцентувати увагу на тому, що всі елементи діаграмми складають одне ціле.';
+                    $text1[] = 'Частини одного цілого.';
+                    // ---
+                    $images = [];
+                    $images[] = 'chart_illustrations/piramid.png';
+                    // ---
+                    $nextUrl = 'structure-hierarchy.php';
+
+                    require('inc/cell.inc');
+                ?>
+            </div>
+            <div class="col-md-4">
+                <?php
+                    $title = 'Частини одного цілого';
+                    // ---
+                    $text1 = [];
+                    $text1[] = 'Вам треба акцентувати увагу на тому, що всі елементи діаграмми складають одне ціле.';
+                    $text1[] = 'Частини одного цілого.';
+                    // ---
+                    $images = [];
+                    $images[] = 'chart_illustrations/puzzle.png';
+                    $images[] = 'chart_illustrations/pie.png';
+                    // ---
+                    $nextUrl = 'structure-puzzle.php';
+
+                    require('inc/cell.inc');
+                ?>
             </div>
         </div>
     </div>

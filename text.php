@@ -11,50 +11,68 @@
         <?php $currentStep = 2; require_once('inc/progress.inc') ?>
 
         <br/>
-        <div class="row" style="text-align: center;">
-            <div class="col-md-12">
-                <h1>Оберіть вірант, шо найбільш відповідає думці,<br/>
-                    яку ви хочете показати графіком?</h1>
-            </div>
-        </div>
         <br/>
+        <br/>
+
+        <div class="jumbotron" style="background-color: #fefefe; border: 1px solid #ddd;text-align: center;">
+            <h4>"Ви маєте текстові данні."</h4>
+            <h2>Що ви хочете показати графіком?</h2>
+        </div>
 
         <div class="row">
             <div class="col-md-4">
-                <h2>Структура</h2>
-                1. Вам важливо показати підпорядкованість елементів один одному.<br/>
-                <br/>
-                <br/>
-                <br/>
-                <a href="structure.php">Ієрархія (структура)</a><br/>
-                <br/>
-                <img src="img/chart_illustrations/piramid.png" style="width: 80px;" />
-                <img src="img/chart_illustrations/schema.png" style="width: 80px;" />
+                <?php
+                    $minHeight = '130px';
+                    $title = 'Структура';
+                    // ---
+                    $text1 = [];
+                    $text1[] = 'Ієрархія.';
+                    $text1[] = 'Вам важливо показати підпорядкованість елементів один одному.';
+                    // ---
+                    $images = [];
+                    $images[] = 'chart_illustrations/piramid.png';
+                    $images[] = 'chart_illustrations/schema.png';
+                    // ---
+                    $nextUrl = 'structure.php';
+
+                    require('inc/cell.inc');
+                ?>
             </div>
 
             <div class="col-md-4">
-                <h2>Причина-наслідок</h2>
-                2. Ви хочете акцентувати увагу глядача на тому, що обьекти на сайді є єтапами первного процессу.<br/>
-                Головна думка не ієрархія, а причинно-наслідковий зв’язок між обьектами.<br/>
-                <br/>
-                <a href="cause-effect.php">Причинно наслідковий зв’зок</a><br/>
-                <br/>
+                <?php
+                    $title = 'Причина-наслідок';
+                    // ---
+                    $text1 = [];
+                    $text1[] = 'Ви хочете акцентувати увагу глядача на тому, що об’екти на сайді є єтапами первного процессу.';
+                    $text1[] = 'Головна думка не ієрархія, а причинно-наслідковий зв’язок між обьектами.';
+                    // ---
+                    $images = [];
+                    $images[] = 'chart_illustrations/algorithm.png';
+                    $images[] = 'chart_illustrations/timeing.png';
+                    $images[] = 'chart_illustrations/voronka.png';
+                    // ---
+                    $nextUrl = 'cause-effect.php';
 
-                <img src="img/chart_illustrations/alghoritm.png" style="width: 80px;" />
-                <img src="img/chart_illustrations/timeing.png" style="width: 80px;" />
-                <img src="img/chart_illustrations/voronka.png" style="width: 80px;" />
+                    require('inc/cell.inc');
+                ?>
             </div>
 
             <div class="col-md-4">
-                <h2>Перелік</h2>
-                3. Вам просто потрібно показати що дані елементи існують.<br/>
-                Немає ніяких акцентів, ні послідовності, ні структури.<br/>
-                <br/>
-                <br/>
-                Перелік
-                <br/>
-                <br/>
-                <img src="img/chart_illustrations/list.png" style="width: 80px;" />
+                <?php
+                    $title = 'Перелік';
+                    // ---
+                    $text1 = [];
+                    $text1[] = 'Вам просто потрібно показати що дані елементи існують.';
+                    $text1[] = 'Немає ніяких акцентів, ні послідовності, ні структури.';
+                    // ---
+                    $images = [];
+                    $images[] = 'chart_illustrations/list.png"';
+                    // ---
+                    $nextUrl = 'list.php';
+
+                    require('inc/cell.inc');
+                ?>
             </div>
         </div>
     </div>
