@@ -48,6 +48,7 @@
                     // ---
                     $images = [];
                     $images[] = 'chart_illustrations/piramid.png';
+                    $images[] = 'chart_illustrations/schema.png';
                     // ---
                     $nextUrl = 'structure-hierarchy.php';
 
@@ -66,7 +67,7 @@
                     $images[] = 'chart_illustrations/puzzle.png';
                     $images[] = 'chart_illustrations/pie.png';
                     // ---
-                    $nextUrl = 'structure-puzzle.php';
+                    $nextUrl = 'structure-parts.php';
 
                     require('inc/cell.inc');
                 ?>

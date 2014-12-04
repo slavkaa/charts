@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <h4>
             <strong style="margin-right: 20px;">Кроки:</strong>
-            <?php foreach ([1,2,3,4,5] as $step): ?>
+            <?php foreach ([1,2,3,4,5,6,7] as $step): ?>
                 <?php $class = 'label-default'; ?>
                 <?php if ($currentStep == $step): ?>
                     <?php $class = 'label-info'; ?>

@@ -52,7 +52,7 @@
                     $images[] = 'chart_illustrations/timeing.png';
                     $images[] = 'chart_illustrations/voronka.png';
                     // ---
-                    $nextUrl = 'cause-effect.php';
+                    $nextUrl = 'structure-reason-result.php';
 
                     require('inc/cell.inc');
                 ?>
@@ -69,7 +69,7 @@
                     $images = [];
                     $images[] = 'chart_illustrations/list.png"';
                     // ---
-                    $nextUrl = 'list.php';
+                    $nextUrl = 'structure-list.php';
 
                     require('inc/cell.inc');
                 ?>
