@@ -1,7 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="js/jquery-2.1.1.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script src="js/data.js"></script>
+<script src="js/IW_Manager.js"></script>
 
 <style>
     body {
@@ -9,12 +13,23 @@
         background-repeat: repeat;
         background-position: center center;
         background-size: 100%;
-        /*content: "";*/
-        /*position: absolute;*/
-        /*width: 100%;*/
-        /*height: 150%;*/
-        /*z-index: 0;*/
-        /*opacity: 0.5;*/
+    }
+
+    .iw-charts .jumbotron {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .small-diagram {
+        width: 80px;
+    }
+
+    .full-diagram {
+        width: 200px;
+    }
+
+    .interactive {
+        cursor: pointer;
     }
 </style>
 
