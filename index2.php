@@ -39,8 +39,10 @@
                         <div style="text-align: center; min-height: 70px;" class="panel-heading">
                             <h2 class="locator-choice-big-text"></h2>
                         </div>
-                        <div style="min-height: 100px;" class="panel-body locator-choice-small-text"></div>
-                        <div style="text-align: center;" class="panel-body locator-choice-images"></div>
+                        <div class="panel-body">
+                            <div class="locator-choice-small-text"></div>
+                            <div style="text-align: center;" class="locator-choice-images"></div>
+                        </div>
                         <div class="panel-footer">
                             <span style="width: 100%;" class="btn btn-primary action-next">
                                 Далі

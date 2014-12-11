@@ -21,6 +21,7 @@
     }
 
     .small-diagram {
+        margin-right: 10px;
         width: 80px;
     }
 

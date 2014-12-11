@@ -1,8 +1,20 @@
 
 //location.hash = "noBack";
-//$(window).on('hashchange', function() {
+$(window).on('hashchange', function() {
 //    location.hash = "noBack";
-//});
+    var hash = location.hash.replace('#', '');
+    if (hash != IW_Manager.currentPageAlias) {
+        // is location.hash valid page alias
+        if (IW_Pages.hasOwnProperty(hash)) {
+            IW_Manager.currentPageAlias = hash;
+        }
+    }
+
+    IW_Manager.currentStep = IW_Pages['home'].getStepNumber(hash, 0);
+
+    IW_Manager.renderCurrentPage();
+    IW_Manager.updateProgressSteps();
+});
 
 IW_Manager = {
 
@@ -10,7 +22,8 @@ IW_Manager = {
 
     currentPageAlias: 'home',
 
-    updateProgressSteps: function() {
+    updateProgressSteps: function()
+    {
         $('.locator-progress-steps span.label-info')
             .removeClass('label-info')
             .addClass('label-default');
@@ -20,15 +33,18 @@ IW_Manager = {
         $('.action-go-to')
             .unbind()
             .click(function() {
-                IW_Manager.currentStep = $(this).attr('data-id');
-                IW_Manager.currentPageAlias = $(this).attr('data-page-name');
+                if ('undefined' != typeof $(this).attr('data-page-name')) {
+                    IW_Manager.currentStep = $(this).attr('data-id');
+                    IW_Manager.currentPageAlias = $(this).attr('data-page-name');
 
-                IW_Manager.updateProgressSteps();
-                IW_Manager.renderCurrentPage();
+                    location.hash = IW_Manager.currentPageAlias;
+//                    IW_Manager.updateProgressSteps();
+//                    IW_Manager.renderCurrentPage();
+                }
             });
 
         $('.locator-progress-step-number').each(function(i, el) {
-            if (null != $(el).attr('data-page-name')) {
+            if ('undefined' != typeof $(el).attr('data-page-name')) {
                 $(el).addClass('interactive');
             } else {
                 $(el).removeClass('interactive');
@@ -38,20 +54,7 @@ IW_Manager = {
 
     renderCurrentPage: function()
     {
-
-        var hash = location.hash.replace('#', '');
-        if (hash != this.currentPageAlias) {
-            // is location.hash valid page alias
-            if (IW_Pages.hasOwnProperty(hash)) {
-                this.currentPageAlias = hash;
-            }
-
-            // todo: get current step is necessary
-        }
-
         var page = IW_Pages[this.currentPageAlias];
-
-        console.log(page);
 
         $('.locator-hide-for-' + page.type).hide();
         $('.locator-show-for-' + page.type).show();
@@ -91,8 +94,6 @@ IW_Manager = {
         newHtml = '';
         var images = page.getImagesUrls();
         $('.locator-title img').remove();
-
-        console.log(null != images, 0 < images.length);
 
         if (page.type == IW_CONSTANTS.DIAGRAM && null != images && 0 < images.length) {
             for (i in images) {
@@ -152,6 +153,10 @@ IW_Manager = {
         }
         // width }
 
+        // min-height {
+        $('.locator-choice-box .panel-body').css('min-height', page.choiceMinHeight + 'px');
+        // min-height }
+
         // choices top text {
         for (var j in page.choices) {
             choice = page.choices[j];
@@ -162,6 +167,7 @@ IW_Manager = {
                     newHtml += '<br/>';
                 }
             }
+            $('.locator-choice-box .panel-heading h2').eq(j).html('');
             if ('' == newHtml) {
                 $('.locator-choice-box .panel-heading h2').eq(j).hide();
             } else {
@@ -191,14 +197,11 @@ IW_Manager = {
         // render diagrams {
         for (j in page.choices) {
             choice = page.choices[j];
-            newHtml = '';
+            newHtml = '<br/>';
             var images = choice.getImagesUrls();
             if (null != images) {
                 for (i in images) {
                     newHtml += '<img src="' + images[i] + '" class="small-diagram"/>';
-                    if (i != images.length - 1) {
-                        newHtml += '<br/>';
-                    }
                 }
 
                 if ('' == newHtml) {
@@ -262,17 +265,48 @@ IW_Manager = {
 
             IW_Manager.currentStep = IW_Manager.currentStep + 1;
             IW_Manager.currentPageAlias = $(this).attr('data-page-name');
-            console.log(IW_Manager.currentStep, IW_Manager.currentPageAlias);
 
-            IW_Manager.updateProgressSteps();
-            IW_Manager.renderCurrentPage();
+//            IW_Manager.renderCurrentPage();
+//            IW_Manager.updateProgressSteps();
+            location.hash = IW_Manager.currentPageAlias;
         });
 
-        location.hash = this.currentPageAlias;
+
+    },
+
+    /**
+     * @param fatherAlias String
+     */
+    buildTree: function(fatherAlias)
+    {
+        var page = IW_Pages[fatherAlias];
+
+        if (0 < page.choices.length)
+        for (var i in page.choices) {
+            page.choices[i].fatherAlias = fatherAlias;
+            this.buildTree(page.choices[i].alias);
+        }
     }
 };
 
-$(document).ready(function() {
-    IW_Manager.updateProgressSteps();
+$(document).ready(function()
+{
+    IW_Manager.buildTree('home');
+
+    var hash = location.hash.replace('#', '');
+    if ('' == hash) {
+        hash = 'home';
+    }
+    if (hash != IW_Manager.currentPageAlias) {
+        // is location.hash valid page alias
+        if (IW_Pages.hasOwnProperty(hash)) {
+            IW_Manager.currentPageAlias = hash;
+        }
+
+        // todo: get current step is necessary
+        IW_Manager.currentStep = IW_Pages['home'].getStepNumber(hash, 0);
+    }
+
     IW_Manager.renderCurrentPage();
+    IW_Manager.updateProgressSteps();
 });
