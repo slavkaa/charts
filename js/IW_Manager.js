@@ -30,6 +30,22 @@ IW_Manager = {
 
         $('.locator-progress-steps span').eq(this.currentStep - 1).addClass('label-info');
 
+        // set up previous step links {
+        var parentPage = IW_Pages[IW_Manager.currentPageAlias];
+        parentPage = IW_Pages[parentPage.parentAlias];
+        if (0 < this.currentStep) {
+            for (var i = this.currentStep - 1; 0 < i; i-- ) {
+                $('.locator-progress-steps span')
+                    .eq(i-1)
+                    .addClass('action-go-to')
+                    .attr('data-page-name', parentPage.alias);
+                parentPage = IW_Pages[parentPage.parentAlias];
+
+            }
+        }
+        // set up previous step links }
+
+
         $('.action-go-to')
             .unbind()
             .click(function() {
@@ -155,6 +171,7 @@ IW_Manager = {
 
         // min-height {
         $('.locator-choice-box .panel-body').css('min-height', page.choiceMinHeight + 'px');
+        $('.locator-choice-box .panel-heading').css('min-height', page.choiceMinHeaderHeight + 'px');
         // min-height }
 
         // choices top text {
@@ -253,7 +270,14 @@ IW_Manager = {
         // init next button {
         $('.action-next').attr('data-page-name', '');
         for (j in page.choices) {
-            $('.action-next').eq(j).attr('data-page-name', page.choices[j].alias);
+            if (page.choices[j].isUserCanFollow) {
+                $('.action-next').eq(j)
+                    .attr('data-page-name', page.choices[j].alias)
+                    .show();
+            } else {
+                $('.action-next').eq(j).hide();
+            }
+
         }
         // init next button }
         // render choices }
@@ -265,9 +289,6 @@ IW_Manager = {
 
             IW_Manager.currentStep = IW_Manager.currentStep + 1;
             IW_Manager.currentPageAlias = $(this).attr('data-page-name');
-
-//            IW_Manager.renderCurrentPage();
-//            IW_Manager.updateProgressSteps();
             location.hash = IW_Manager.currentPageAlias;
         });
 
@@ -275,16 +296,17 @@ IW_Manager = {
     },
 
     /**
-     * @param fatherAlias String
+     * @param parentAlias String
      */
-    buildTree: function(fatherAlias)
+    buildTree: function(parentAlias)
     {
-        var page = IW_Pages[fatherAlias];
+        var page = IW_Pages[parentAlias];
 
-        if (0 < page.choices.length)
-        for (var i in page.choices) {
-            page.choices[i].fatherAlias = fatherAlias;
-            this.buildTree(page.choices[i].alias);
+        if (0 < page.choices.length) {
+            for (var i in page.choices) {
+                page.choices[i].parentAlias = parentAlias;
+                this.buildTree(page.choices[i].alias);
+            }
         }
     }
 };
