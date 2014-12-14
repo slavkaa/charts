@@ -606,6 +606,56 @@ IW_Page = {
 
     // ----------------------------------------------
 
+    var numbers_comparison_amount_4_plus_bar_d = jQuery.extend({}, IW_Page, {
+        alias: 'numbers_comparison_amount_4_plus_bar_d',
+        type: IW_CONSTANTS.DIAGRAM,
+        choiceBigText: [
+            '1'
+        ],
+        choiceSmallText: [
+            ''
+        ],
+        imagesUrls: [
+            'img/chart_illustrations/bar.png'
+        ],
+        titleSmallText: [
+            ''
+        ],
+        titleBigText: [
+            ''
+        ],
+        suggestions: [
+            IW_Suggestions['important_only'],
+            IW_Suggestions['main_element'],
+            IW_Suggestions['contrast']
+        ]
+    });
+
+    // ----------------------------------------------
+
+    var numbers_comparison_amount_4_plus_too_much_s = jQuery.extend({}, IW_Page, {
+        alias: 'numbers_comparison_amount_4_plus_too_much_s',
+        type: IW_CONSTANTS.STEP,
+        choiceBigText: [
+            '2+'
+        ],
+        choiceSmallText: [
+            'Люди будуть плутатись у безлічі стовпчиків.',
+            'Треба спростити: або прибрати непотрібні стовпчики,',
+            'або виділити 2-3 думки які ви хочете донести',
+            'і сробити декілька слайдів'
+        ],
+        titleSmallText: [
+            ''
+        ],
+        titleBigText: [
+            ''
+        ],
+        isUserCanFollow: false
+    });
+
+    // ----------------------------------------------
+
     var numbers_comparison_amount_4_plus_s = jQuery.extend({}, IW_Page, {
         alias: 'numbers_comparison_amount_4_plus_s',
         type: IW_CONSTANTS.STEP,
@@ -622,7 +672,10 @@ IW_Page = {
             'Они точно не нужны все.',
             'Сделать 3 главных + прочее.'
         ],
-        isUserCanFollow: false
+        choices: [
+            numbers_comparison_amount_4_plus_bar_d,
+            numbers_comparison_amount_4_plus_too_much_s
+        ]
     });
 
     // ----------------------------------------------
@@ -889,7 +942,7 @@ IW_Page = {
             'Длинные подписи у колонок?'
         ],
         choiceBigText: [
-            'сравнение'
+            'разницу в значениях'
         ],
         choiceSmallText: [
             ''
@@ -1414,6 +1467,8 @@ IW_Page = {
         'numbers_comparison_amount_1_comparison_short_titles_20_plus_d': numbers_comparison_amount_1_comparison_short_titles_20_plus_d,
         'numbers_comparison_amount_2_3_histogram_d': numbers_comparison_amount_2_3_histogram_d,
         'numbers_comparison_amount_2_3_linear_d': numbers_comparison_amount_2_3_linear_d,
-        'numbers_comparison_amount_2_3_too_much_d': numbers_comparison_amount_2_3_too_much_d
+        'numbers_comparison_amount_2_3_too_much_d': numbers_comparison_amount_2_3_too_much_d,
+        'numbers_comparison_amount_4_plus_bar_d': numbers_comparison_amount_4_plus_bar_d,
+        'numbers_comparison_amount_4_plus_too_much_s': numbers_comparison_amount_4_plus_too_much_s
     };
 })();
