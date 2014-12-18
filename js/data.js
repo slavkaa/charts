@@ -1013,7 +1013,7 @@ IW_Page = {
             ''
         ],
         imagesUrls: [
-            ''
+            'img/chart_illustrations/pie_detailed.png'
         ],
         titleSmallText: [
             ''
