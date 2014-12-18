@@ -69,5 +69,11 @@
             </table>
         </div>
     </div>
+
+    <br/>
+    <div class="row">
+        <center>v.0.003</center>
+    </div>
+    <br/>
 </body>
 </html>
