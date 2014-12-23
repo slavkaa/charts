@@ -43,11 +43,6 @@
                             <div class="locator-choice-small-text"></div>
                             <div style="text-align: center;" class="locator-choice-images"></div>
                         </div>
-                        <!--div class="panel-footer">
-                            <span style="width: 100%;" class="btn btn-primary">
-                                Далі
-                            </span>
-                        </div-->
                     </div>
                 </div>
             <?php endforeach ?>

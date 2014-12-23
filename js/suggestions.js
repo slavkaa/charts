@@ -1,6 +1,12 @@
-var IW_Suggestions = {};
+var IW_Suggestions = jQuery.extend({}, IW_Suggestion, {});
 
-IW_Suggestions.importantOnly = {
+var IW_Suggestion = jQuery.extend({}, IW_Suggestion, {
+    label: '',
+    text: [],
+    imgUrl: null
+});
+
+IW_Suggestions.importantOnly = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Приберіть не важливе взагалі'
     ],
@@ -13,8 +19,9 @@ IW_Suggestions.importantOnly = {
         '- ви витрачаєте час на те щоб знайти,назвати, розмістити її,',
         '- вона обьв’язково викличє питання уважного слухача (людина буде певна що допомагає вам, бо ви нічого не сказали який елемент - забули?)'
     ]
-};
-IW_Suggestions.tooManyElements = {
+});
+
+IW_Suggestions.tooManyElements = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Об’єднайте не важливі елементи,',
         'які не можна прибрати'
@@ -29,8 +36,9 @@ IW_Suggestions.tooManyElements = {
         '- збереже ваш час на пошук і підписування (вигадування підписів)',
         '- зменшить кількість питань на які ви не знаєте відповідь, або обговорення яких тільки відволіче час аудіторії'
     ]
-};
-IW_Suggestions.mainElement = {
+});
+
+IW_Suggestions.mainElement = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Виділіть головний елемент'
     ],
@@ -38,8 +46,9 @@ IW_Suggestions.mainElement = {
         'Можливо у вас є один головний елемент, про який ві будете розповідати. Все інше - фон.',
         'Виділіть цей елемент кольором. Це з оріентує гладачів, вони не будуть відволікатися на другоряді елементи.'
     ]
-};
-IW_Suggestions.contrast = {
+});
+
+IW_Suggestions.contrast = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть конрасний (відносно літер) фон'
     ],
@@ -48,8 +57,9 @@ IW_Suggestions.contrast = {
         'Не використовуйте фоновій градієнт - якісь літери обов’язково буде не зручно читати.',
         'Якщо все і так гарно читається - нічого не міняйте! :)'
     ]
-};
-IW_Suggestions.padding = {
+});
+
+IW_Suggestions.padding = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть відстань від рамки до текстів '
     ],
@@ -58,8 +68,9 @@ IW_Suggestions.padding = {
         'Не ліпіть текст до рамки, читачам буде важко розгледіти літери - лінія нижньої рамки буде сприйматися як частина літери.',
         'Наприклад якшо нижній рядок ліпиться но нижньї рамки, то "П" і "О" бідуть схожі, а також "М-Ш-Щ", "В-Р-Е" т.п.'
     ]
-};
-IW_Suggestions.footnotesPyramid = {
+});
+
+IW_Suggestions.footnotesPyramid = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть зноски'
     ],
@@ -71,8 +82,9 @@ IW_Suggestions.footnotesPyramid = {
         'Ви зможете вирівняти підписи і зберегти структуру шарів піраміди рівномірною.',
         'Це зробитьдіаграмму привабливішою'
     ]
-};
-IW_Suggestions.footnotesSum = {
+});
+
+IW_Suggestions.footnotesSum = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть зноски'
     ],
@@ -82,8 +94,9 @@ IW_Suggestions.footnotesSum = {
         'Змістіть діаграмму трохи ліворуч чи праворуч від центру малюнка',
         'та зробить виносні лінії до підписів.'
     ]
-};
-IW_Suggestions.footnotesPie = {
+});
+
+IW_Suggestions.footnotesPie = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть зноски'
     ],
@@ -91,8 +104,9 @@ IW_Suggestions.footnotesPie = {
         'Якщо у вас є малі за висотою/плошею елементи - зробіть зноски.',
         'Це єдиний спосіб зберегти співвідношення елементів і підписати їх рівноовеликими підписами.'
     ]
-};
-IW_Suggestions.equalHeightLayers = {
+});
+
+IW_Suggestions.equalHeightLayers = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть шари однаковими'
     ],
@@ -104,8 +118,9 @@ IW_Suggestions.equalHeightLayers = {
         'Можливо варто зазначити устно, що дана діаграмма показує структуру, а не співвіднощення',
         'щоб глядачі одразу зконцентрувалися на найважливішому.'
     ]
-};
-IW_Suggestions.equalSizePie = {
+});
+
+IW_Suggestions.equalSizePie = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть сектори однаковими'
     ],
@@ -114,8 +129,9 @@ IW_Suggestions.equalSizePie = {
         'Зробіть сертори рівного розміру.',
         'Скажіть усно, що діаграмма не відображає пропорції, щою уникнути зайвих запитаннь.'
     ]
-};
-IW_Suggestions.textSize = {
+});
+
+IW_Suggestions.textSize = jQuery.extend({}, IW_Suggestion, {
     label: [
         'Зробіть текст оптимального розміру'
     ],
@@ -128,4 +144,4 @@ IW_Suggestions.textSize = {
         'Використовуйте данній шрифт для всіх написів.',
         'Якщо ви не можете спробувати - використовуйте шрифт 24pt.'
     ]
-};
+});

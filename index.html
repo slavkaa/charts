@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="js/suggestions.js"></script>
+    <script src="js/IW_Page_base.js"></script>
+    <script src="js/data_text_chart.js"></script>
+    <script src="js/data_numbers_chart.js"></script>
+
+    <script src="js/data.js"></script>
+    <script src="js/IW_Manager.js"></script>
+
+    <style>
+        body {
+            background-image: url('img/paper-2.jpg');
+            background-repeat: repeat;
+            background-position: center center;
+            background-size: 100%;
+        }
+
+        .iw-charts .jumbotron {
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .small-diagram {
+            margin-bottom: 5px;
+            margin-right: 10px;
+            width: 80px;
+        }
+
+        .full-diagram {
+            width: 200px;
+        }
+
+        .interactive {
+            cursor: pointer;
+        }
+
+        .css-hover-border-highlighter:hover {
+            border-color: #999;
+        }
+
+        .css-hover-border-highlighter:hover .panel-heading {
+            background-color: #ddd;
+            border-color: #999;
+        }
+
+        .css-suggestion-text {
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body class="iw-charts">
+
+<div class="container">
+    <!-- -- -->
+
+    <div style="text-align: center; margin-top: 25px; margin-bottom: 25px;" class="row">
+        <div class="col-md-12 locator-progress-steps">
+            <h4>
+                <strong style="margin-right: 20px;">Кроки:</strong>
+
+                <span style="display: inline-block; text-align: center;"
+                      data-id="1"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    1
+                </span>
+                &nbsp;
+                <span style="display: inline-block; text-align: center;"
+                      data-id="2"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    2
+                </span>
+                &nbsp;
+                <span style="display: inline-block; text-align: center;"
+                      data-id="3"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    3
+                </span>
+                &nbsp;
+                <span style="display: inline-block; text-align: center;"
+                      data-id="4"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    4
+                </span>
+                &nbsp;
+                <span style="display: inline-block; text-align: center;"
+                      data-id="5"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    5
+                </span>
+                &nbsp;
+                <span style="display: inline-block; text-align: center;"
+                      data-id="6"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    6
+                </span>
+                &nbsp;
+                <span style="display: inline-block; text-align: center;"
+                      data-id="7"
+                      class="label label-default locator-progress-step-number action-go-to">
+                    7
+                </span>
+                &nbsp;
+            </h4>
+        </div>
+    </div>
+
+    <div style="background-color: #fefefe; border: 1px solid #ddd;text-align: center;"
+         class="jumbotron locator-title">
+        <h4 class="locator-title-small-text"></h4>
+        <h2 class="locator-title-big-text"></h2>
+    </div>
+
+    <div class="row">
+        <div class="locator-choice-box locator-choice-box-1
+                    locator-hide-for-diagram locator-show-for-home locator-show-for-step">
+            <div class="panel panel-default css-hover-border-highlighter action-next interactive">
+                <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                    <h2 class="locator-choice-big-text"></h2>
+                </div>
+                <div class="panel-body">
+                    <div class="locator-choice-small-text"></div>
+                    <div style="text-align: center;" class="locator-choice-images"></div>
+                </div>
+            </div>
+        </div>
+        <div class="locator-choice-box locator-choice-box-2
+                    locator-hide-for-diagram locator-show-for-home locator-show-for-step">
+            <div class="panel panel-default css-hover-border-highlighter action-next interactive">
+                <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                    <h2 class="locator-choice-big-text"></h2>
+                </div>
+                <div class="panel-body">
+                    <div class="locator-choice-small-text"></div>
+                    <div style="text-align: center;" class="locator-choice-images"></div>
+                </div>
+            </div>
+        </div>
+        <div class="locator-choice-box locator-choice-box-3
+                    locator-hide-for-diagram locator-show-for-home locator-show-for-step">
+            <div class="panel panel-default css-hover-border-highlighter action-next interactive">
+                <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                    <h2 class="locator-choice-big-text"></h2>
+                </div>
+                <div class="panel-body">
+                    <div class="locator-choice-small-text"></div>
+                    <div style="text-align: center;" class="locator-choice-images"></div>
+                </div>
+            </div>
+        </div>
+        <div class="locator-choice-box locator-choice-box-4
+                    locator-hide-for-diagram locator-show-for-home locator-show-for-step">
+            <div class="panel panel-default css-hover-border-highlighter action-next interactive">
+                <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                    <h2 class="locator-choice-big-text"></h2>
+                </div>
+                <div class="panel-body">
+                    <div class="locator-choice-small-text"></div>
+                    <div style="text-align: center;" class="locator-choice-images"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="background-color: #fefefe; border: 1px solid #ddd; text-align: center;"
+         class="jumbotron col-md-12 locator-suggestions-box locator-hide-for-home locator-hide-for-step locator-show-for-diagram">
+        <h3>Поради при оформленні діаграмми:</h3>
+        <br>
+
+        <div class="row">
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-0
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text css-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-1
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-2
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-3
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-4
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-5
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-6
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-7
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-8
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-9
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-10
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 locator-suggestion locator-suggestion-11
+                action-toggle-suggestion-text">
+                <div class="panel panel-default interactive">
+                    <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                        <h4 class="locator-suggestion-label"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="locator-suggestion-text"></div>
+                        <div style="text-align: center;">
+                            <img src="" class="locator-suggestion-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+    <div class="row" style="text-align: center;">
+        v.0.004
+    </div>
+    <br/>
+</div>
+</body>
+</html>

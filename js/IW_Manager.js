@@ -231,7 +231,10 @@ IW_Manager = {
         // render diagrams }
 
         // render suggestions {
-        $('.locator-suggestions-box table tr').hide();
+        $('.locator-suggestion').hide();
+        $('.locator-suggestion .locator-suggestion-text').hide();
+        $('.locator-suggestion .locator-suggestion-image').attr('src', '');
+
         for (j in page.suggestions) {
             suggestion = page.suggestions[j];
 
@@ -250,21 +253,27 @@ IW_Manager = {
             var text = suggestion.text;
             if (null != text) {
                 for (i in text) {
-                    newHtmlText += text[i];
-                    if (i != text.length - 1) {
-                        newHtmlText += '<br/>';
-                    }
+                    newHtmlText += text[i] + '<br/>';
                 }
             }
+            newHtmlText += '<br/>';
 
             if ('' != newHtml) {
-                $('.locator-suggestions-box table tr:eq(' + j + ') td.locator-suggestion-label')
+                $('.locator-suggestion-' + j + ' .locator-suggestion-label')
                     .html(newHtmlLabel);
-                $('.locator-suggestions-box table tr:eq(' + j + ') td.locator-suggestion-text')
+                $('.locator-suggestion-' + j + ' .locator-suggestion-text')
                     .html(newHtmlText);
-                $('.locator-suggestions-box table tr').eq(j).show();
+                $('.locator-suggestion-' + j + ' .locator-suggestion-image')
+                    .attr('src', suggestion.imgUrl);
+                $('.locator-suggestion-' + j).show();
             }
         }
+
+        $('.action-toggle-suggestion-text')
+            .unbind()
+            .click(function() {
+                $(this).find('.locator-suggestion-text').toggle();
+            });
         // render suggestions }
 
         // init next button {
