@@ -1,6 +1,5 @@
 
 (function() {
-
     var home = jQuery.extend({}, IW_Page, {
         alias: 'home',
         type: IW_CONSTANTS.HOME,

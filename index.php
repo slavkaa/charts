@@ -3,74 +3,77 @@
 <head>
     <?php require_once('inc/html-header.inc') ?>
 </head>
-<body>
+<body class="iw-charts">
+
     <div class="container">
-        <br/>
+        <!-- -- -->
 
-        <?php
-            $currentStep = 1;
-            require_once('inc/progress.inc');
-        ?>
+        <div style="text-align: center; margin-top: 25px; margin-bottom: 25px;" class="row">
+            <div class="col-md-12 locator-progress-steps">
+                <h4>
+                    <strong style="margin-right: 20px;">Кроки:</strong>
 
-        <br/>
-        <br/>
-        <br/>
+                    <?php foreach ([1,2,3,4,5,6,7] as $step): ?>
+                        <span style="display: inline-block; text-align: center;"
+                              data-id="<?= $step ?>"
+                              class="label label-default locator-progress-step-number action-go-to">
+                        <?= $step ?>
+                    </span>
+                        &nbsp;
+                    <?php endforeach ?>
+                </h4>
+            </div>
+        </div>
 
-        <div class="jumbotron" style="background-color: #fefefe; border: 1px solid #ddd;text-align: center;">
-            <h2>Помічник вибору діаграмм.
-                <br/>
-                <br/>
-                У вашій діаграммі переважають?
-            </h2>
+        <div style="background-color: #fefefe; border: 1px solid #ddd;text-align: center;"
+             class="jumbotron locator-title">
+            <h4 class="locator-title-small-text"></h4>
+            <h2 class="locator-title-big-text"></h2>
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <?php
-                    $minHeight = '100px';
-                    $title = 'Цифри';
-                    // ---
-                    $text1 = [];
-                    $text1[] = 'Тексти є просто підписами колонок.';
-                    $text1[] = 'Ви хочете показати порівнняння двох або декількох величин,'
-                        .' співвіднощення між частинами цілого.';
-                    // ---
-                    $images = [];
-                    $images[] = 'chart_illustrations/histogramm.png';
-                    $images[] = 'chart_illustrations/linear.png';
-                    $images[] = 'chart_illustrations/pie.png';
-                    $images[] = 'chart_illustrations/summarizing-histogramm.png';
-                    $images[] = 'chart_illustrations/voronka.png';
-                    // ---
-                    $nextUrl = 'numbers.php';
-
-                    require('inc/cell.inc');
-                ?>
-            </div>
-
-            <div class="col-md-6">
-                <?php
-                    $title = 'Тексти';
-                    // ---
-                    $text1 = [];
-                    $text1[] = 'Цифр немає взагалі.';
-                    $text1[] = 'Ви хочете показати порівнняння двох або декількох величин,'
-                        .' співвіднощення між частинами цілого.';
-                    // ---
-                    $images = [];
-                    $images[] = 'chart_illustrations/algorithm.png';
-                    $images[] = 'chart_illustrations/piramid.png';
-                    $images[] = 'chart_illustrations/schema.png';
-                    $images[] = 'chart_illustrations/timeing.png';
-                    // ---
-                    $nextUrl = 'text.php';
-
-                    require('inc/cell.inc');
-                ?>
-            </div>
+            <?php foreach ([1,2,3,4] as $step): ?>
+                <div class="locator-choice-box locator-choice-box-<?= $step ?>
+                    locator-hide-for-diagram locator-show-for-home locator-show-for-step">
+                    <div class="panel panel-default css-hover-border-highlighter action-next interactive">
+                        <div style="text-align: center; min-height: 70px;" class="panel-heading">
+                            <h2 class="locator-choice-big-text"></h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="locator-choice-small-text"></div>
+                            <div style="text-align: center;" class="locator-choice-images"></div>
+                        </div>
+                        <!--div class="panel-footer">
+                            <span style="width: 100%;" class="btn btn-primary">
+                                Далі
+                            </span>
+                        </div-->
+                    </div>
+                </div>
+            <?php endforeach ?>
         </div>
 
-        <br/>
+        <div style="background-color: #fefefe; border: 1px solid #ddd; text-align: center;"
+             class="jumbotron col-md-12 locator-suggestions-box locator-hide-for-home locator-hide-for-step locator-show-for-diagram">
+            <h3>Поради при оформленні діаграмми:</h3>
+            <br>
+            <table class="table table-bordered">
+                <tbody>
+                    <?php foreach ([1,2,3,4,5,6,7,8,9,10,11,12] as $step): ?>
+                    <tr>
+                        <td class="locator-suggestion-label" style="text-align: left; font-weight: bold; width: 320px;"></td>
+                        <td class="locator-suggestion-text" style="text-align: justify;"></td>
+                    </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <br/>
+    <div class="row">
+        <center>v.0.003</center>
+    </div>
+    <br/>
 </body>
 </html>

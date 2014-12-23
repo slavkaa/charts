@@ -21,6 +21,7 @@
     }
 
     .small-diagram {
+        margin-bottom: 5px;
         margin-right: 10px;
         width: 80px;
     }
@@ -31,6 +32,15 @@
 
     .interactive {
         cursor: pointer;
+    }
+
+    .css-hover-border-highlighter:hover {
+        border-color: #999;
+    }
+
+    .css-hover-border-highlighter:hover .panel-heading {
+        background-color: #ddd;
+        border-color: #999;
     }
 </style>
 
